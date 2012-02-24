@@ -6,11 +6,10 @@ require 'rubygems'
 require 'sinatra/base'
 require 'securerandom'
 require 'mongo_mapper'
-require 'json'
 
-mongo_server = '127.0.0.1' # Get this from ENV var
-mongo_database = 'URLnip' # get this from ENV var
-
+# TODO - Get this vars from ENV var values
+mongo_server = '127.0.0.1' 
+mongo_database = 'URLnip'
 
 MongoMapper.connection = Mongo::Connection.new(mongo_server)
 MongoMapper.database = mongo_database
@@ -24,11 +23,11 @@ class Surl
 #  key :when, Time.now
 end
 
-
 # Main worker class
 class UrlNip < Sinatra::Base
 
-  domain = 'afri.gis' # Get this from a ENV var.
+  # TODO - Get this car from ENV var value 
+  domain = 'afri.gis'
 
   get '/' do
     return "Usage : http://#{domain}/shorten/URL you want to shorten"
