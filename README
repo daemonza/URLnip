@@ -4,6 +4,8 @@ URLnip
 NOTE : Still heavily in development, lots still to do
 But here is the basic idea
 
+sho.rt is just a example domain :)
+
 Shorten's a given URL to the configured ENV var domain  + 4 characters
 
 Example shortend url : http://sho.rt/3a07
