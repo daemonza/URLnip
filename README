@@ -1,0 +1,12 @@
+URLnip
+------
+
+Shorten's a given URL to the configured ENV var domain  + 4 characters
+
+Example shortend url : http://ko.rt/3a07
+
+Usage
+-----
+
+Configure a domain enviroument varible to your domain and start URLnip through
+whichever Rack server you prefer. I recommend Passenger with Nginx (http://www.modrails.com/)
