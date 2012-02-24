@@ -1,12 +1,19 @@
 URLnip
 ------
 
+NOTE : Still heavily in development, lots still to do
+But here is the basic idea
+
 Shorten's a given URL to the configured ENV var domain  + 4 characters
 
-Example shortend url : http://ko.rt/3a07
+Example shortend url : http://sho.rt/3a07
 
 Usage
 -----
+
+Go to http://sho.rt/shorten/URL you want to shorten
+and get something like this back :
+http://sho.rt/3a07
 
 Configure a domain enviroument varible to your domain and start URLnip through
 whichever Rack server you prefer. I recommend Passenger with Nginx (http://www.modrails.com/)
