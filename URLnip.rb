@@ -29,11 +29,11 @@ class UrlNip < Sinatra::Base
   # TODO - Get this car from ENV var value 
   domain = 'afri.gis'
 
-  get '/' do
+  get '/?' do
     return "Usage : http://#{domain}/shorten/URL you want to shorten"
   end
 
-  get '/shorten/:url' do |url|
+  get '/shorten/:url/?' do |url|
     random_string = SecureRandom.hex(2)
     shorten_url = "http://#{domain}/#{random_string}"
 
@@ -43,7 +43,7 @@ class UrlNip < Sinatra::Base
     return "And your URL is : #{shorten_url}"
   end
 
-  get '/:urlkey' do |urlkey|
+  get '/:urlkey/?' do |urlkey|
      redirect_url = Surl.find_by_url_key(urlkey)
      redirect "http://#{redirect_url.url}"
   end
