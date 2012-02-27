@@ -18,4 +18,4 @@ and get something like this back :
 http://sho.rt/3a07
 
 Configure a domain enviroument varible to your domain and start URLnip through
-whichever Rack server you prefer. I recommend Passenger with Nginx (http://www.modrails.com/)
+whichever Rack server you prefer.
