@@ -36,11 +36,15 @@ class UrlNip < Sinatra::Base
   get '/shorten/:url/?' do |url|
     random_string = SecureRandom.hex(2)
     shorten_url = "http://#{domain}/#{random_string}"
-
-   nipurl = Surl.create(:url_key => random_string, :url => url)
-   nipurl.save!
-  
-    return "And your URL is : #{shorten_url}"
+   
+   # This does not work. I suspect problem is in |url| above
+    if (defined?(url)).nil?
+      return "You have to give a URL to shorten"
+    else
+      nipurl = Surl.create(:url_key => random_string, :url => url)
+      nipurl.save!
+      return "And your URL is : #{shorten_url}"
+    end
   end
 
   get '/:urlkey/?' do |urlkey|
