@@ -30,12 +30,6 @@ class UrlNip < Sinatra::Base
   # TODO - Get this car from ENV var value 
   domain = 'afri.gis'
 
-  #get '/?' do
-  #  return "Usage : http://#{domain}/shorten/URL you want to shorten"
-  #end
-
-  # Beta functionality for shorten call 
-  #get '/beta/:url' do |url|
   get '/?' do 
    erb :index
   end 

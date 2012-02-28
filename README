@@ -10,6 +10,9 @@ Shorten's a given URL to the configured ENV var domain  + 4 characters
 
 Example shortend url : http://sho.rt/3a07
 
+To use it you need Twitter Bootstrap. To get it run :
+setup.sh
+
 Usage
 -----
 
