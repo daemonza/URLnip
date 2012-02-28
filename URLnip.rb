@@ -30,26 +30,24 @@ class UrlNip < Sinatra::Base
   # TODO - Get this car from ENV var value 
   domain = 'afri.gis'
 
-  get '/?' do
-    return "Usage : http://#{domain}/shorten/URL you want to shorten"
-  end
+  #get '/?' do
+  #  return "Usage : http://#{domain}/shorten/URL you want to shorten"
+  #end
 
-  get '/boo' do
+  # Beta functionality for shorten call 
+  #get '/beta/:url' do |url|
+  get '/?' do 
    erb :index
   end 
 
-  get '/shorten/:url/?' do |url|
+  get '/shorten/?' do
     random_string = SecureRandom.hex(2)
     shorten_url = "http://#{domain}/#{random_string}"
-   
-   # This does not work. I suspect problem is in |url| above
-    if (url).nil?
-      return "You have to give a URL to shorten"
-    else
+  
+      url = params[:url]
       nipurl = Surl.create(:url_key => random_string, :url => url)
       nipurl.save!
       return "And your URL is : #{shorten_url}"
-    end
   end
 
   get '/:urlkey/?' do |urlkey|

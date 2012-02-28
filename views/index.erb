@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Title var</title>
+    <title><%= @domain %></title>
 
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
@@ -14,7 +14,7 @@
     <body>
       <div class="container">
         <h6>Enter URL to shorten</h6>
-        <form>
+        <form action="/shorten">
           <input class="span3" type=text name="url"><br>
           <button class="btn-inverse btn-large" type=submit>Shorten</button>
         </form>
