@@ -20,7 +20,8 @@ class Surl
 
   key :url_key, String, :required => true
   key :url, String, :required => true
-#  key :when, Time.now
+  #key :when, Time.now
+  timestamps!
 end
 
 # Main worker class
@@ -33,12 +34,16 @@ class UrlNip < Sinatra::Base
     return "Usage : http://#{domain}/shorten/URL you want to shorten"
   end
 
+  get '/boo' do
+   erb :index
+  end 
+
   get '/shorten/:url/?' do |url|
     random_string = SecureRandom.hex(2)
     shorten_url = "http://#{domain}/#{random_string}"
    
    # This does not work. I suspect problem is in |url| above
-    if (defined?(url)).nil?
+    if (url).nil?
       return "You have to give a URL to shorten"
     else
       nipurl = Surl.create(:url_key => random_string, :url => url)
@@ -51,4 +56,5 @@ class UrlNip < Sinatra::Base
      redirect_url = Surl.find_by_url_key(urlkey)
      redirect "http://#{redirect_url.url}"
   end
+
 end
