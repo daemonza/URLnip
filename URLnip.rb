@@ -20,7 +20,6 @@ class Surl
 
   key :url_key, String, :required => true
   key :url, String, :required => true
-  #key :when, Time.now
   timestamps!
 end
 
@@ -34,7 +33,7 @@ class UrlNip < Sinatra::Base
   # that URL to /shorten 
   get '/?' do 
    erb :index
-  end 
+  end
 
   # Does the heavy lifting. Shorten the URL and put it in
   # Mongo, and display shorty page with shortened URL 
@@ -55,5 +54,4 @@ class UrlNip < Sinatra::Base
      redirect_url = Surl.find_by_url_key(urlkey)
      redirect "http://#{redirect_url.url}"
   end
-
 end

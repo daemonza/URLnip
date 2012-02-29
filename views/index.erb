@@ -5,6 +5,19 @@
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 
+     <script type="text/javascript" src="../bootstrap/js/jquery-1.7.1.min.js"></script>
+     <script type="text/javascript">
+       function validateForm()
+       {
+         var x=document.forms["shorten"]["url"].value;
+         if (x==null || x=="")
+         {
+            alert("You have to enter a URL to shorten");
+            return false;
+          }
+        }
+     </script>
+
     <style>
       body {
              padding-top: 60px;
@@ -14,7 +27,7 @@
     <body>
       <div class="container">
         <h6>Enter URL to shorten</h6>
-        <form action="/shorten">
+        <form name=shorten action="/shorten" onsubmit="return validateForm()">
           <input class="span3" type=text name="url"><br>
           <button class="btn-inverse btn-large" type=submit>Shorten</button>
         </form>
