@@ -52,6 +52,8 @@ class UrlNip < Sinatra::Base
   # Does the re-direct 
   get '/:urlkey/?' do |urlkey|
      redirect_url = Surl.find_by_url_key(urlkey)
-     redirect "http://#{redirect_url.url}"
+     # BUG : if you put http:// in the url to shorten, the redirect breaks.
+     #redirect "http://#{redirect_url.url}"
+     redirect "#{redirect_url.url}"
   end
 end
