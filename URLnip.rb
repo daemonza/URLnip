@@ -30,20 +30,27 @@ class UrlNip < Sinatra::Base
   # TODO - Get this car from ENV var value 
   domain = 'afri.gis'
 
+  # Shows form where you give a URL to shorten. and then pass
+  # that URL to /shorten 
   get '/?' do 
    erb :index
   end 
 
+  # Does the heavy lifting. Shorten the URL and put it in
+  # Mongo, and display shorty page with shortened URL 
   get '/shorten/?' do
     random_string = SecureRandom.hex(2)
     shorten_url = "http://#{domain}/#{random_string}"
-  
+
       url = params[:url]
       nipurl = Surl.create(:url_key => random_string, :url => url)
       nipurl.save!
-      return "And your URL is : #{shorten_url}"
+      @shorty = shorten_url
+      erb :shorty
+      #return "And your URL is : #{shorten_url}"
   end
 
+  # Does the re-direct 
   get '/:urlkey/?' do |urlkey|
      redirect_url = Surl.find_by_url_key(urlkey)
      redirect "http://#{redirect_url.url}"
